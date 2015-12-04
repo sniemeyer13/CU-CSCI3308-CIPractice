@@ -91,13 +91,27 @@ START_TEST(test_2d_dist)
 }
 END_TEST
 
+/* area Test */
+START_TEST(test_area)
+{
+    coord_2d_t a;
+    coord_2d_t b;
+    coord_2d_t c;
+    
+    a.x = a.y = 15; 
+    b.x = 23; b.y = 30;
+    c.x = 50; c.y = 25;
+
+    ck_assert(coord_2d_area_triangle(&a, &b, &c) == 222.5);
+}
+END_TEST
+
 /* coord_2d_midpoint Test */
 START_TEST(test_2d_midpoint)
 {
     coord_2d_t a;
     coord_2d_t b;
-    coord_2d_t mid;
-    coord_2d_t exp;
+
 
     a.x = b.x = 0;
     a.y = b.y = 0;
