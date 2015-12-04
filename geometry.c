@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <errno.h>
+//#include <iostream>
 
 #include "geometry.h"
 
@@ -72,16 +73,24 @@ void coord_2d_midpoint(coord_2d_t* mid, const coord_2d_t* a, const coord_2d_t* b
 
 double coord_2d_area_triangle (const coord_2d_t* a, const coord_2d_t* b, const coord_2d_t* c){
 
-double ax = a->x;
-double bx = b->x;
-double cx = c->x;
-double ay = a->y;
-double by = b->y;
-double cy = c->y;
+double a1 = a->x * (b->y - c->y);
+double b1 = b->x * (c->y - a->y);
+double c1 = c->x * (a->y - b->y);
 
-double area = (ax*(by - cy) + bx*(cy - ay) + cx*(ay - by))/2
-area = abs(area);
+double sum = (a1+b1+c1)/2;
+double area = abs(sum);
 
+//double ax = a->x;
+//double bx = b->x;
+//double cx = c->x;
+//double ay = a->y;
+//double by = b->y;
+//double cy = c->y;
+
+//double area = (ax*(by - cy) + bx*(cy - ay) + cx*(ay - by))/2;
+//area = abs(area);
+
+//printf("%G", area);
 return area;
 
 }
